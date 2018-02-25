@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars!!!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1><strong>Mission to Mars!!!</strong></h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Find Awesome Facts About Mars!!!</a></p>
+    </div>  
+  </div>
+
+  </br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="heading"><strong>Latest Mars News</strong></h1>
+        <h2><strong>{{scrapedict.news_title}}</strong></h2>
+        <h3>{{scrapedict.news_p}}</h3>
+      </div>
+    </div>
+  </div>
+
+  </br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="heading"><strong>Featured Mars Image</strong></h1>
+        <div class="row">
+          <div class="col-md-12">
+            <img id="mars-image" src={{scrapedict.featured_image_url}} width=100% height=auto alt="Mars Image">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <h3 class="heading"><strong>Current Weather on Mars</strong></h3>
+          <h4>{{scrapedict.mars_weather}}</h4>
+        </div>        
+        <div class="row">
+          <h3 class="heading"><strong>Mars Facts</strong></h3>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead> <tr style="text-align: right;"> <th></th> <th>Details</th> </tr> <tr> <th>Facts</th> <th></th> </tr> </thead> <tbody> <tr> <th>Equatorial Diameter:</th> <td>6,792 km</td> </tr> <tr> <th>Polar Diameter:</th> <td>6,752 km</td> </tr> <tr> <th>Mass:</th> <td>6.42 x 10^23 kg (10.7% Earth)</td> </tr> <tr> <th>Moons:</th> <td>2 (Phobos &amp; Deimos)</td> </tr> <tr> <th>Orbit Distance:</th> <td>227,943,824 km (1.52 AU)</td> </tr> <tr> <th>Orbit Period:</th> <td>687 days (1.9 years)</td> </tr> <tr> <th>Surface Temperature:</th> <td>-153 to 20 °C</td> </tr> <tr> <th>First Record:</th> <td>2nd millennium BC</td> </tr> <tr> <th>Recorded By:</th> <td>Egyptian astronomers</td> </tr> </tbody>
+            </table>  
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  </br>
+
+  <div class="container">
+    <div class="jumbotron text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="heading"><strong>Mars Hemispheres</strong></h2>
+        </div>
+      </div>
+      <div class="row">    
+        {% for url in scrapedict.hemisphere_image_urls %}
+          <div class="col-md-6">
+            <div class="row">
+              <img id="mars-hemisphere-image" src={{url.img_url}} width=100% height=auto alt="Mars Hemisphere Image">
+            </div>
+            </br>
+            <div class="row">
+            <h4><strong>{{url.title}}</strong></h4>
+            </div>  
+            </br>
+          </div>
+        {% endfor %}
+      </div>
+    </div>    
+  </div>
+
+</body>
+
+</html>
+
